@@ -26,7 +26,7 @@ Todo lo parametrizable está en **`src/lib/config.ts`**:
 ```ts
 export const siteConfig = {
   // 👇 CAMBIA ESTE NÚMERO (solo dígitos, con código de país)
-  whatsappNumber: '573102099929',   // Ejemplo: Colombia +57 300 123 4567
+  whatsappNumber: '573001234567',   // Ejemplo: Colombia +57 300 123 4567
 
   // Mensaje de la burbuja flotante de WhatsApp (esquina inferior izquierda)
   whatsappDefaultMessage: '¡Hola! Me gustaría conocer más sobre los productos KESAMA.',

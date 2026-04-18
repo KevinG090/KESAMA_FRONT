@@ -62,6 +62,12 @@ export const categories: Category[] = [
     slug: 'mesitas-de-noche',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDx2e3doWTPYFa8qi9Aha0lGvwUhPx0w1C6j-40kId38FVOStjkHTUAXsCkClnrcTYU_ogeEUnwKZXL1zBx8RVu4Z7WzMsyOUPn_Ibk69WnDjtGet3LrvYJp8BVGhyqr9acf5eZSLVzIAzUFLQn_zVlw9g6HCX6WzVg-AGsBf0qhs0PlY_j8MKuaDJWgvBDTIvjq6-uLlSgCV6E7JuinS-EC8i9R9usZGgVHZGAjpxWPLZT_0kLJckJz1_Rn-f2V9js2RYqjXh',
   },
+  {
+    id: 'bano',
+    name: 'Muebles de Baño',
+    slug: 'bano',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCXlBFd4xgGoNnpna5xQqHhVFZJF40t0YDL1FYy5J2gLVwFizJ1SIfXEZJJGXoUsoDVWv6cIs0-9nHbVf3HWQkoPl9ihBECZarsK2dYwUFo4TUs3-tvUJNzxWmkRRdz1wS1FSbGazxMS8hRasva2wXBDuphmtFZGnvLEyz9NCJHblcgWebvi6a_W6Xvu1ENmQFvr8A1s0E-jsQMaBQxjVPs3b1kLouTB5NWE6FVsb6n--HBKC9MRPsXIr8YW56B9ok9Qu0-ttV7',
+  },
 ]
 
 export const featuredProducts: Product[] = [
@@ -115,3 +121,7 @@ export const materials = [
   { name: 'Fresno', description: 'Nórdico · Grano Fino', tone: 'Neutro' },
   { name: 'Cedro', description: 'Natural · Aromático', tone: 'Medio' },
 ]
+
+// Agrega Muebles de Baño a las categorías del bento grid
+// Para usarlo en CategoriesGrid, agrégalo al array categories arriba con:
+// { id: 'bano', name: 'Muebles de Baño', slug: 'bano', image: '...' }

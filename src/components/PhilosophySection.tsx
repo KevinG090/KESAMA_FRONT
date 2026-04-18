@@ -4,8 +4,9 @@ import { useEffect, useRef } from 'react'
 
 const stats = [
   { value: '100%', label: 'Sostenible' },
-  { value: '25+', label: 'Artesanos' },
-  { value: '∞', label: 'Garantía' },
+  { value: '100%', label: 'Calidad' },
+  { value: '∞', label: 'Durabilidad y Garantía' },
+
 ]
 
 export default function PhilosophySection() {

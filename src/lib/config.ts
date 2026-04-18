@@ -5,8 +5,8 @@
 
 export const siteConfig = {
   // Número de WhatsApp (solo dígitos, con código de país)
-  // Ejemplo Colombia: 573102099929
-  whatsappNumber: '573102099929',
+  // Ejemplo Colombia: 573001234567
+  whatsappNumber: '573001234567',
 
   // Mensaje por defecto para la burbuja general de WhatsApp
   whatsappDefaultMessage: '¡Hola! Me gustaría conocer más sobre los productos KESAMA.',
