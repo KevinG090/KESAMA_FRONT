@@ -13,7 +13,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   // Lee categorías dinámicamente — si agregas/ocultas en catalog.ts, se refleja aquí
-  const categories = getVisibleCategories()
+  const categories = getVisibleCategories({ move_materials_to_end: true })
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -70,7 +70,7 @@ export default function Navbar() {
                 href={`/catalogo/${cat.slug}`}
                 className="font-manrope tracking-tight font-medium uppercase text-xs text-[#4e453e] hover:text-[#1b1c1a] transition-colors"
               >
-                {cat.title}
+                { cat.title }
               </Link>
             ))}
           </div>
@@ -116,10 +116,10 @@ export default function Navbar() {
               key={cat.id}
               href={`/catalogo/${cat.slug}`}
               onClick={() => setMenuOpen(false)}
-              className="text-left py-5 text-3xl font-bold tracking-tighter text-[#1b1c1a] hover:text-[#715a3e] transition-colors border-b border-[#d1c4ba]/20 block"
+              className="text-left py-3 text-2xl font-bold tracking-tighter text-[#1b1c1a] hover:text-[#715a3e] transition-colors border-b border-[#d1c4ba]/20 block"
               style={{ animationDelay: `${(i + 1) * 60}ms` }}
             >
-              {cat.title} {cat.titleAccent}
+              {cat?.second_title ?? cat.title} {cat.titleAccent}
             </Link>
           ))}
         </div>

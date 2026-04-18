@@ -14,12 +14,12 @@ import { getVisibleCategories } from '@/data/catalog'
 // Layout bento: define el orden y el tamaño de columnas de cada celda.
 // Si hay más categorías que entradas en el layout, usan el tamaño por defecto.
 const bentoLayout: Record<string, { col: string; height: string }> = {
-  escritorios: { col: 'md:col-span-2 md:row-span-2', height: 'h-64 md:h-full' },
+  cocinas:     { col: 'md:col-span-2 md:row-span-2', height: 'h-48 md:h-full' },
   comedores:   { col: 'md:col-span-2 md:row-span-1', height: 'h-48 md:h-full' },
-  cocinas:     { col: 'md:col-span-2 md:row-span-1', height: 'h-48 md:h-full' },
-  puertas:     { col: 'md:col-span-2 md:row-span-1', height: 'h-48 md:h-full' },
-  materiales:  { col: 'md:col-span-1 md:row-span-1', height: 'h-48 md:h-full' },
-  vestidores:  { col: 'md:col-span-1 md:row-span-2', height: 'h-64 md:h-full' },
+  escritorios: { col: 'md:col-span-2 md:row-span-1', height: 'h-64 md:h-full' },
+  puertas:     { col: 'md:col-span-1 md:row-span-1', height: 'h-24 md:h-full' },
+  materiales:  { col: 'md:col-span-1 md:row-span-1', height: 'h-24 md:h-full' },
+  vestidores:  { col: 'md:col-span-2 md:row-span-2', height: 'h-64 md:h-full' },
   bano:        { col: 'md:col-span-2 md:row-span-1', height: 'h-48 md:h-full' },
   'mesitas-de-noche': { col: 'md:col-span-2 md:row-span-1', height: 'h-48 md:h-full' },
 }
@@ -84,7 +84,7 @@ export default function CategoriesGrid() {
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
                 {/* Category name */}
                 <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight mb-1 leading-tight">
-                  {cat.title}{' '}
+                  { cat?.second_title ?? cat.title }{' '}
                   <span className="text-[#fdddb9]">{cat.titleAccent}</span>
                 </h3>
 

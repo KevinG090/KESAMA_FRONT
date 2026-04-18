@@ -39,7 +39,7 @@ export default function PhilosophySection() {
           </div>
           {/* Quote card */}
           <div
-            className="absolute -bottom-6 -left-4 md:-left-8 w-72 bg-[#fdddb9] p-7 hidden md:block"
+            className="absolute -bottom-6 -left-4 md:-left-8 w-72 bg-[#fdddb9] p-7 hidden md:block z-10"
             style={{ borderRadius: '0.125rem' }}
           >
             <p className="text-[#786044] font-medium text-sm leading-relaxed italic">

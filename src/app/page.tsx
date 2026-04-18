@@ -1,12 +1,3 @@
-// ──────────────────────────────────────────────────────────────────────────────
-// página principal de KESAMA
-//
-// Para agregar, ocultar o reordenar categorías:
-//   → Edita src/data/catalog.ts  (visible: true/false, order: N)
-//
-// Los catálogos completos viven en /catalogo/[slug]
-// ──────────────────────────────────────────────────────────────────────────────
-
 import Navbar from '@/components/Navbar'
 import WhatsAppBubble from '@/components/WhatsAppBubble'
 import HeroSection from '@/components/HeroSection'
@@ -15,23 +6,22 @@ import FeaturedProducts from '@/components/FeaturedProducts'
 import PhilosophySection from '@/components/PhilosophySection'
 import MaterialsSection from '@/components/MaterialsSection'
 import Footer from '@/components/Footer'
+import ScrollToHash from '@/components/ScrollToHash'
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <WhatsAppBubble />
+      {/* Maneja scroll a secciones cuando se llega con hash en la URL */}
+      <ScrollToHash />
       <main>
         <HeroSection />
-
-        {/* Grid bento — cada tarjeta tiene "Ver más" → /catalogo/[slug] */}
         <CategoriesGrid />
-
-        {/* Productos destacados (máx 3, definidos en products.ts) */}
         <FeaturedProducts />
-
-        <MaterialsSection />
-        <PhilosophySection />
+        {/* Los IDs deben coincidir con los hashes del Footer */}
+        <div id="materiales"><MaterialsSection /></div>
+        <div id="filosofia"><PhilosophySection /></div>
       </main>
       <Footer />
     </>

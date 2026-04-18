@@ -39,6 +39,7 @@ export interface CatalogCategory {
   id: string
   slug: string
   title: string
+  second_title?: string
   titleAccent: string
   badge: string
   description: string
@@ -58,7 +59,7 @@ export const escritoriosCategory: CatalogCategory = {
   id: 'escritorios',
   slug: 'escritorios',
   visible: true,
-  order: 1,
+  order: 3,
   title: 'Escritorios',
   titleAccent: 'de Precisión',
   badge: 'Colección Oficina',
@@ -258,7 +259,7 @@ export const cocinasCategory: CatalogCategory = {
   id: 'cocinas',
   slug: 'cocinas',
   visible: true,
-  order: 3,
+  order: 1,
   title: 'Cocinas',
   titleAccent: 'Integrales',
   badge: 'Colección Cocina',
@@ -589,7 +590,8 @@ export const banoCategory: CatalogCategory = {
   slug: 'bano',
   visible: true,
   order: 7,
-  title: 'Muebles de',
+  title: 'Muebles de Baño',
+  second_title: 'Muebles de',
   titleAccent: 'Baño',
   badge: 'Colección Baño',
   description: 'El baño como santuario privado. Vanities, muebles flotantes y accesorios en madera tratada que desafían la humedad y elevan la experiencia diaria.',
@@ -834,18 +836,32 @@ export const mesitasCategory: CatalogCategory = {
 // Para ocultar una, pon visible: false en su objeto arriba.
 
 export const allCategoriesList: CatalogCategory[] = [
+  cocinasCategory,
   escritoriosCategory,
   comedoresCategory,
-  cocinasCategory,
   puertasCategory,
-  materialesCategory,
   vestidoresCategory,
   banoCategory,
   mesitasCategory,
+  materialesCategory,
 ]
 
 // Helper: solo las categorías visibles, ordenadas
-export function getVisibleCategories(): CatalogCategory[] {
+export function getVisibleCategories({ move_materials_to_end = false } = {}): CatalogCategory[] {
+
+  // Mover materiales al final
+  if (move_materials_to_end) {
+    const materiales = allCategoriesList.find((c) => c.slug === 'materiales')
+    if (materiales) {
+      const newAllCategoriesList = []
+      // const materialesIndex = allCategoriesList.findIndex((c) => c.slug === 'materiales')
+      const otherCategories = allCategoriesList.filter((c) => c.slug !== 'materiales')
+      newAllCategoriesList.push(...otherCategories)
+      newAllCategoriesList.push(materiales)
+      
+      return newAllCategoriesList
+    }
+  }
   return allCategoriesList
     .filter((c) => c.visible !== false)
     .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))

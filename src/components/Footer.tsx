@@ -1,28 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 import { siteConfig } from '@/lib/config'
-
-const footerLinks = {
-  colecciones: [
-    { label: 'Escritorios', href: '#escritorios' },
-    { label: 'Comedores', href: '#comedores' },
-    { label: 'Cocinas', href: '#cocinas' },
-    { label: 'Puertas', href: '#puertas' },
-    { label: 'Vestidores', href: '#vestidores' },
-    { label: 'Mesitas de Noche', href: '#mesitas-de-noche' },
-  ],
-  compania: [
-    { label: 'Filosofía', href: '#filosofia' },
-    { label: 'Materiales', href: '#materiales' },
-    { label: 'Sostenibilidad', href: '#filosofia' },
-    { label: 'Contacto', href: `https://wa.me/${siteConfig.whatsappNumber}` },
-  ],
-}
+import { getVisibleCategories } from '@/data/catalog'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+  const categories = getVisibleCategories()
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,10 +21,15 @@ export default function Footer() {
     }
   }
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      const el = document.querySelector(href)
+  // Navega a una sección del home (#filosofia, #materiales, etc.)
+  // Si ya estás en home → scroll directo
+  // Si estás en otra página → navega a home y pasa el hash en la URL
+  const handleHomeSection = (hash: string) => {
+    if (pathname === '/') {
+      const el = document.querySelector(hash)
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      router.push(`/${hash}`)
     }
   }
 
@@ -43,16 +37,19 @@ export default function Footer() {
     <footer className="w-full py-20 px-6 md:px-12 bg-[#efeeeb]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+
           {/* Brand */}
           <div className="md:col-span-1 flex flex-col">
-            <span className="text-2xl font-bold text-[#1b1c1a] tracking-tighter mb-5">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-[#1b1c1a] tracking-tighter mb-5 hover:text-[#535353] transition-colors"
+            >
               {siteConfig.companyName}
-            </span>
+            </Link>
             <p className="text-sm text-[#535353] leading-relaxed max-w-xs mb-8">
               Elevando el estándar del diseño en madera a través de la maestría artesanal y la
               visión contemporánea.
             </p>
-            {/* Social */}
             <div className="flex gap-4">
               {siteConfig.socialLinks.instagram && (
                 <a
@@ -70,39 +67,57 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Collections */}
+          {/* Colecciones — dinámico desde catalog.ts */}
           <div className="flex flex-col space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#1b1c1a] mb-1">
               Colecciones
             </span>
-            {footerLinks.colecciones.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className="text-left text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors bg-transparent border-none p-0 cursor-pointer font-manrope"
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/catalogo/${cat.slug}`}
+                className="text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors font-manrope"
               >
-                {link.label}
-              </button>
+                {cat.title} {cat.titleAccent}
+              </Link>
             ))}
           </div>
 
-          {/* Company */}
+          {/* Compañía — links que van a secciones del home */}
           <div className="flex flex-col space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#1b1c1a] mb-1">
               Compañía
             </span>
-            {footerLinks.compania.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                onClick={link.href.startsWith('#') ? (e) => { e.preventDefault(); handleNavClick(link.href) } : undefined}
-                className="text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+
+            <button
+              onClick={() => handleHomeSection('#filosofia')}
+              className="text-left text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors bg-transparent border-none p-0 cursor-pointer font-manrope"
+            >
+              Filosofía
+            </button>
+
+            <button
+              onClick={() => handleHomeSection('#materiales')}
+              className="text-left text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors bg-transparent border-none p-0 cursor-pointer font-manrope"
+            >
+              Materiales
+            </button>
+
+            <button
+              onClick={() => handleHomeSection('#filosofia')}
+              className="text-left text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors bg-transparent border-none p-0 cursor-pointer font-manrope"
+            >
+              Sostenibilidad
+            </button>
+
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#4e453e] hover:text-[#715a3e] transition-colors"
+            >
+              Contacto
+            </a>
           </div>
 
           {/* Newsletter */}
@@ -116,7 +131,11 @@ export default function Footer() {
             {subscribed ? (
               <p className="text-[#715a3e] font-bold text-sm">¡Gracias por suscribirte!</p>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex items-center gap-0" style={{ borderBottom: '1px solid rgba(209,196,186,0.4)' }}>
+              <form
+                onSubmit={handleSubscribe}
+                className="flex items-center gap-0"
+                style={{ borderBottom: '1px solid rgba(209,196,186,0.4)' }}
+              >
                 <input
                   type="email"
                   value={email}
