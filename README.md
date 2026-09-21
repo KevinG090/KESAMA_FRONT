@@ -1,5 +1,7 @@
 # KESAMA — Landing Page Next.js
 
+> Actualización del visor de muebles: consulta [INSTRUCCIONES-3D.md](./INSTRUCCIONES-3D.md) para ejecutar, probar y editar la nueva mesita interactiva. La implementación anterior de Spline fue retirada.
+
 Landing page premium para **KESAMA**, empresa de muebles en madera de alta gama.  
 Construida con **Next.js 15**, **Tailwind CSS** y lista para desplegar en **Vercel**.
 

@@ -1,13 +1,10 @@
 'use client'
 
-import { useEffect, useRef, Suspense } from 'react'
-// import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import { featuredProducts } from '@/data/products'
 import { getWhatsappProductUrl } from '@/lib/config'
 import NightstandViewer3D from './NightstandViewer3D'
 
-// ✅ Import dinámico sin SSR
-// const NightstandViewer3D = dynamic(() => import('./NightstandViewer3D'), { ssr: false })
 function ProductCard({
   product,
   offset = false,
@@ -96,7 +93,7 @@ export default function FeaturedProducts() {
         {/* ===== 3D HERO FEATURE ===== */}
         <div className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-sm shadow-xl">
           {/* Left: 3D Viewer */}
-          <div className="bg-[#eae6e0] p-8 md:p-12 flex flex-col justify-between min-h-[480px]">
+          <div className="bg-[#eae6e0] p-4 md:p-6 flex flex-col justify-between min-h-[480px] min-w-0">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#715a3e]" />
               <span className="text-[#715a3e] text-[10px] font-bold uppercase tracking-widest">
@@ -104,13 +101,7 @@ export default function FeaturedProducts() {
               </span>
             </div>
 
-            <Suspense fallback={
-              <div className="flex-1 flex items-center justify-center text-[#4e453e] text-sm">
-                Cargando modelo 3D…
-              </div>
-            }>
-              <NightstandViewer3D />
-            </Suspense>
+            <NightstandViewer3D />
           </div>
 
           {/* Right: Product info */}
@@ -121,20 +112,20 @@ export default function FeaturedProducts() {
               </span>
               <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tighter leading-tight mb-4">
                 Mesita de Noche<br />
-                <span className="text-[#b8a898]">con Puerta Secreta</span>
+                <span className="text-[#b8a898]">Flotante NTS—02</span>
               </h3>
               <p className="text-white/60 text-sm leading-relaxed mb-8">
-                Un diseño que esconde más de lo que muestra. Dos cajones de corredera premium
-                y un compartimento lateral oculto — accesible solo para quien sabe dónde buscar.
-                Elaborada en tablero lacado gris con herrajes en negro mate.
+                Explora cada ángulo de esta pieza flotante. Abre sus dos cajones por separado,
+                descubre el interior y prueba los acabados de madera con cuerpo blanco mate.
+                Enciende la iluminación inferior para completar la experiencia.
               </p>
 
               <div className="space-y-3 mb-10">
                 {[
-                  { icon: '⬛', label: 'Tablero lacado gris piedra' },
-                  { icon: '⚙️', label: 'Corredera telescópica de acero' },
-                  { icon: '🔒', label: 'Compartimento lateral secreto' },
-                  { icon: '✦', label: 'Herrajes en negro mate' },
+                  { icon: '◒', label: 'Roble o nogal · blanco mate' },
+                  { icon: '↔', label: 'Dos cajones independientes' },
+                  { icon: '✦', label: 'Iluminación LED cálida' },
+                  { icon: '◎', label: 'Vistas 360° y soporte trasero' },
                 ].map((f) => (
                   <div key={f.label} className="flex items-center gap-3">
                     <span className="text-sm">{f.icon}</span>
@@ -146,7 +137,7 @@ export default function FeaturedProducts() {
 
             <div className="space-y-3">
               <a
-                href={`https://wa.me/573102099929?text=${encodeURIComponent('¡Hola KESAMA! Me interesa la Mesita de Noche con Puerta Secreta. ¿Podrían darme más información?')}`}
+                href={getWhatsappProductUrl('Mesita de Noche Flotante NTS-02', 'Mesitas de noche')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-[#715a3e] text-white px-6 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#8a6d4a] transition-colors duration-300 active:scale-95"

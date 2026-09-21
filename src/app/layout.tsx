@@ -1,14 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-// src/app/layout.tsx  — dentro del <head> o antes del </body>
-import Script from 'next/script'
-
-// Dentro del return del Layout:
-<Script 
-  type="module" 
-  src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"
-  strategy="afterInteractive"
-/>
 
 export const metadata: Metadata = {
   title: 'KESAMA · Artesanía en Madera de Alta Gama',
