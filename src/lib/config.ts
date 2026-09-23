@@ -20,8 +20,8 @@ export const siteConfig = {
   // Subtítulo hero
   heroSubtitle: 'Diseño atemporal concebido desde la nobleza de la madera y la precisión técnica.',
 
-  // Email para newsletter (placeholder)
-  contactEmail: 'hola@kesama.co',
+  // Email de contacto
+  contactEmail: 'kesama090@gmail.com',
 
   // Redes sociales (opcional, dejar vacío para ocultar)
   socialLinks: {
