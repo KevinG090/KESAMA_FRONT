@@ -55,7 +55,7 @@ export default function HeroSection() {
           >
             {siteConfig.heroSubtitle}
           </p>
-          <div ref={btnRef} className="flex gap-4">
+          <div ref={btnRef} className="flex gap-4 mb-24 md:mb-0">
             <button
               onClick={scrollToCategories}
               className="bg-[#535353] text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#6c6b6b] transition-all duration-300 active:scale-95"
