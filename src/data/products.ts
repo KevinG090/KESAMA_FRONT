@@ -106,11 +106,11 @@ export const featuredProducts: Product[] = [
   {
     id: 'puerta-basalto',
     name: 'Puerta Basalto',
-    subtitle: 'Cedro Natural · Herraje Bruñido',
+    subtitle: 'Nogal Oscuro · Paneles Horizontales',
     category: 'Puertas',
-    material: 'Cedro Natural',
+    material: 'Nogal Oscuro',
     price: 'A medida',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA998zyToXo5tDkbKNm4sx-MM6DDE18YZJT-PhBS2mgOaFVDNDI26y8zACUv4EwIKvqDLGRqT0DzE3cB80ck998So1aXfnFqJSr24t3Z0D9vOVburl3jcDPKf1uMj_qqEzC4k5UQzw_o6gJfY83-0Cbcuh93uCiler6EQ7GvFbUax2WXuNOxfsvAhh7-xp7v3Adak6b5zJYx4XdXrnsSjIrNLfq4XCXkMLfs-bFb1vR2QmapDx6Vjznp7pKx8AYPNqP1TChcdg2',
+    image: '/images/puertas/diseno-02.png',
     featured: false,
   },
 ]
