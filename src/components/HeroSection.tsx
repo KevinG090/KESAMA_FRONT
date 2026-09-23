@@ -70,14 +70,6 @@ export default function HeroSection() {
             </button>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2 opacity-60">
-          <span className="text-white text-[10px] uppercase tracking-widest font-bold writing-mode-vertical">
-            Scroll
-          </span>
-          <div className="w-px h-12 bg-white/60 animate-pulse" />
-        </div>
       </div>
     </section>
   )

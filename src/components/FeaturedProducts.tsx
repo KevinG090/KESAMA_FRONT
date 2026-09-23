@@ -75,7 +75,7 @@ export default function FeaturedProducts() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Header */}
-        <div ref={titleRef} className="animate-on-scroll flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div ref={titleRef} className="animate-on-scroll flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div className="max-w-xl">
             <span className="text-[#715a3e] font-bold text-xs uppercase tracking-widest block mb-4">
               Selección Curada
