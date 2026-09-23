@@ -29,6 +29,15 @@ export const siteConfig = {
     facebook: '',
     pinterest: '',
   },
+
+  // ── Datos legales del responsable ──────────────────────────
+  // Usados en /terminos-y-condiciones y /politica-de-privacidad.
+  // Complétalos con tus datos reales antes de publicar: son
+  // información obligatoria según el Estatuto del Consumidor
+  // (Ley 1480 de 2011, art. 50) y la Ley de Habeas Data (1581 de 2012).
+  legalName: 'KESAMA', // Razón social o nombre completo del responsable
+  nit: '', // NIT o documento de identificación — pendiente de definir
+  legalCity: 'Colombia', // Ciudad/domicilio para efectos de notificación
 }
 
 // Genera la URL de WhatsApp para un producto específico

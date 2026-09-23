@@ -827,7 +827,7 @@ export const mesitasCategory: CatalogCategory = {
   badge: 'Colección Dormitorio',
   description: 'Piezas escultóricas que habitan el espacio más íntimo del hogar. Lo último que ves al cerrar los ojos merece ser hermoso.',
   heroDescription: 'La mesita de noche es el objeto doméstico más infravalorado. En KESAMA lo tratamos con la misma seriedad que una mesa de comedor: proporción, material, funcionalidad y carácter son innegociables.',
-  heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDx2e3doWTPYFa8qi9Aha0lGvwUhPx0w1C6j-40kId38FVOStjkHTUAXsCkClnrcTYU_ogeEUnwKZXL1zBx8RVu4Z7WzMsyOUPn_Ibk69WnDjtGet3LrvYJp8BVGhyqr9acf5eZSLVzIAzUFLQn_zVlw9g6HCX6WzVg-AGsBf0qhs0PlY_j8MKuaDJWgvBDTIvjq6-uLlSgCV6E7JuinS-EC8i9R9usZGgVHZGAjpxWPLZT_0kLJckJz1_Rn-f2V9js2RYqjXh',
+  heroImage: '/images/mesita_de_noche/diseno-01.png',
   materials: ['Fresno Nórdico', 'Roble Natural', 'Nogal Oscuro', 'Cerezo Americano'],
   finishes: ['Aceite Natural', 'Tinte Humo', 'Barniz Semimate', 'Lacado Mate'],
   heroProduct: {

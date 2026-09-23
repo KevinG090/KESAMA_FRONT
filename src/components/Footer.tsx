@@ -164,12 +164,18 @@ export default function Footer() {
             © {new Date().getFullYear()} {siteConfig.companyName}. Artesanía en Madera de Alta Gama.
           </span>
           <div className="flex gap-6">
-            <span className="text-xs font-medium text-[#4e453e] cursor-pointer hover:text-[#715a3e] transition-colors">
+            <Link
+              href="/politica-de-privacidad"
+              className="text-xs font-medium text-[#4e453e] hover:text-[#715a3e] transition-colors"
+            >
               Política de Privacidad
-            </span>
-            <span className="text-xs font-medium text-[#4e453e] cursor-pointer hover:text-[#715a3e] transition-colors">
+            </Link>
+            <Link
+              href="/terminos-y-condiciones"
+              className="text-xs font-medium text-[#4e453e] hover:text-[#715a3e] transition-colors"
+            >
               Términos y Condiciones
-            </span>
+            </Link>
           </div>
         </div>
       </div>
