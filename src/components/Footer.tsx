@@ -1,25 +1,14 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { siteConfig } from '@/lib/config'
 import { getVisibleCategories } from '@/data/catalog'
 
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
   const categories = getVisibleCategories()
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) {
-      setSubscribed(true)
-      setEmail('')
-    }
-  }
 
   // Navega a una sección del home (#filosofia, #materiales, etc.)
   // Si ya estás en home → scroll directo
@@ -36,7 +25,7 @@ export default function Footer() {
   return (
     <footer className="w-full py-20 px-6 md:px-12 bg-[#efeeeb]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 
           {/* Brand */}
           <div className="md:col-span-1 flex flex-col">
@@ -120,39 +109,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Newsletter */}
-          <div className="flex flex-col">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#1b1c1a] mb-4">
-              Newsletter
-            </span>
-            <p className="text-xs text-[#535353] mb-5 leading-relaxed">
-              Suscríbete para recibir lanzamientos de nuevas colecciones y eventos exclusivos.
-            </p>
-            {subscribed ? (
-              <p className="text-[#715a3e] font-bold text-sm">¡Gracias por suscribirte!</p>
-            ) : (
-              <form
-                onSubmit={handleSubscribe}
-                className="flex items-center gap-0"
-                style={{ borderBottom: '1px solid rgba(209,196,186,0.4)' }}
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@email.com"
-                  className="bg-transparent border-none focus:outline-none text-sm w-full py-2 text-[#1b1c1a] placeholder:text-[#80756d]"
-                />
-                <button
-                  type="submit"
-                  className="text-[#1b1c1a] hover:text-[#715a3e] transition-colors flex-shrink-0"
-                  aria-label="Suscribirse"
-                >
-                  <span className="material-symbols-outlined">arrow_forward</span>
-                </button>
-              </form>
-            )}
-          </div>
         </div>
 
         {/* Bottom bar */}

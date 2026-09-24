@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { getVisibleCategories } from '@/data/catalog'
+import { getVisibleCategories, isConceptImage } from '@/data/catalog'
+import ConceptBadge from './ConceptBadge'
 
 // ──────────────────────────────────────────────────────────────────────────────
 // CategoriesGrid — completamente dinámico
@@ -79,6 +80,10 @@ export default function CategoriesGrid() {
 
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10 group-hover:from-black/75 group-hover:via-black/30 transition-all duration-500" />
+
+              {isConceptImage(cat.heroImage || cat.heroProduct.image) && (
+                <ConceptBadge className="absolute top-4 right-4 z-10" />
+              )}
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">

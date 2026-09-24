@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Términos y condiciones de uso del sitio web de KESAMA, incluyendo la política de propiedad intelectual y derechos de autor, conforme a la legislación colombiana.',
 }
 
-const UPDATED = '22 de septiembre de 2026'
+const UPDATED = '23 de septiembre de 2026'
 
 const sections = [
   { id: 'aceptacion', title: '1. Aceptación de los términos' },
@@ -114,7 +114,8 @@ export default function TerminosYCondicionesPage() {
         <p>
           Las visualizaciones conceptuales <strong>no son fotografías de trabajos entregados</strong> y se ofrecen
           únicamente con fines ilustrativos; el resultado final de un proyecto a medida puede diferir de estas
-          imágenes. En cumplimiento del deber de información veraz y suficiente del Estatuto del Consumidor, ante
+          imágenes. En el catálogo se identifican con la etiqueta{' '}
+          <strong>&ldquo;Visualización conceptual&rdquo;</strong>. En cumplimiento del deber de información veraz y suficiente del Estatuto del Consumidor, ante
           cualquier duda sobre si una imagen corresponde a una fotografía real o a una visualización conceptual, el
           usuario puede solicitar aclaración a través de los canales de contacto del sitio antes de tomar una
           decisión de compra.

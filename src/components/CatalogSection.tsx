@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import type { CatalogCategory, CatalogProduct } from '@/data/catalog'
+import { isConceptImage, type CatalogCategory, type CatalogProduct } from '@/data/catalog'
 import { getWhatsappProductUrl } from '@/lib/config'
+import ConceptBadge from './ConceptBadge'
 
 // WhatsApp SVG icon
 function WAIcon({ size = 16 }: { size?: number }) {
@@ -39,6 +40,7 @@ function HeroProduct({ product, categoryTitle }: { product: CatalogProduct; cate
             <Tag label={product.tag} />
           </div>
         )}
+        {isConceptImage(product.image) && <ConceptBadge className="absolute bottom-6 left-6" />}
       </div>
 
       {/* Details */}
@@ -125,6 +127,7 @@ function ProductCard({ product, categoryTitle, index }: { product: CatalogProduc
             <Tag label={product.tag} />
           </div>
         )}
+        {isConceptImage(product.image) && <ConceptBadge className="absolute bottom-4 left-4" />}
       </div>
 
       {/* Content */}

@@ -948,6 +948,14 @@ export function getCategoryBySlug(slug: string): CatalogCategory | undefined {
   return allCategoriesList.find((c) => c.slug === slug && c.visible !== false)
 }
 
+// Helper: ¿la imagen es una visualización conceptual generada con IA?
+// Por convención se guardan como /images/<categoria>/diseno-XX.png.
+// Se usa para mostrarles la etiqueta "Visualización conceptual" y no
+// presentarlas como fotos de trabajos reales (Ley 1480, art. 30).
+export function isConceptImage(src: string): boolean {
+  return /\/diseno-\d+\.\w+$/.test(src)
+}
+
 // Legacy named exports for backward compatibility
 export const allCategories = {
   escritorios: escritoriosCategory,
