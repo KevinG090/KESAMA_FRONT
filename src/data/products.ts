@@ -72,14 +72,13 @@ export const categories: Category[] = [
 
 export const featuredProducts: Product[] = [
   {
-    id: 'mesa-monolito',
-    name: 'Mesa Monolito',
-    subtitle: 'Roble Macizo · Tinte Carbón',
-    category: 'Comedores',
-    material: 'Roble Macizo',
-    dimensions: '320 × 110 cm',
-    price: 'Consultar',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD23Ync5hNENxCSUT6rHZX7aeoFBSjj33so8Fi-ix29ME2Bbm--SjS0lFgdXCWhP6CzTo2vvAUusu5ko8ju_V4xVSI3pI6pbhAdPWItFSwr4K30W7JplJl02O9kSMIg2lT0qUoAVTxuYMwh085AV7Xsf3iUCwjCkrio_fYRjJS30A1FXWFSHCT4VaCBisci5Q9UV6W4As-q4iUVna3CD4mu6GT07rVNT3a9nT6o8CbjybDWAOteRktbLKs1tQ_Qw38uRdGvMVs-',
+    id: 'centro-entretenimiento',
+    name: 'Centro de Entretenimiento',
+    subtitle: 'Tono Nogal · Panel Efecto Mármol · LED Integrado',
+    category: 'Centros de Entretenimiento',
+    material: 'Tono Nogal + Panel Efecto Mármol',
+    price: 'A medida',
+    image: '/images/centro_entretenimiento/card-led.webp',
     featured: true,
   },
   {

@@ -29,17 +29,34 @@ export default function HeroSection() {
 
   return (
     <section className="px-6 md:px-12 mb-20 pt-24">
-      <div className="relative h-[85vh] min-h-[600px] max-h-[900px] w-full overflow-hidden rounded-lg">
-        {/* Hero image */}
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmpnXEPnua7eHFdFueJHZvRqvqDYN8e_WyjJPDRsWPOPw5AnZ6NgVt2WQRdVS1oxhfckFkQ_pqrwwI5mzc7yiu03_hlXxSiAyyTNkhaLyecbGSgiR2B_5McqKk3Nh-IoeiKXwPEAWw6CcLCx4wvStAsm2yI_alKTiGv_j355cOsP-ox-Xbpc9P_q0B7MgI2S30K5nLawGqjJ3RE75KRJFX1o-kkGdly4fyeCO8Or2Lt-4pfpCjUDtFrVtrtKLQ71QfsoNFdoED"
-          alt="Interior minimalista de lujo con paneles de madera de roble"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
+      <div className="relative h-[70vh] min-h-[540px] md:h-[85vh] md:min-h-[600px] max-h-[900px] w-full overflow-hidden rounded-lg">
+        {/* Hero: el mismo centro de entretenimiento con LEDs encendidos (abajo) y con
+            las lámparas de pared (arriba, se desvanece en bucle). Cada versión con
+            lámparas está alineada sobre su par con LEDs para que el fundido no se vea
+            doble. En móvil (< md) se usan las fotos verticales. */}
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/images/centro_entretenimiento/hero-led-mobile.webp" />
+          <img
+            src="/images/centro_entretenimiento/hero-led.webp"
+            alt="Centro de entretenimiento KESAMA en tono nogal con panel efecto mármol e iluminación LED integrada"
+            className="absolute inset-0 w-full h-full object-cover object-[38%_50%] md:object-[45%_50%]"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/images/centro_entretenimiento/hero-lamparas-mobile.webp" />
+          <img
+            src="/images/centro_entretenimiento/hero-lamparas.webp"
+            alt=""
+            aria-hidden="true"
+            className="hero-lights-swap absolute inset-0 w-full h-full object-cover object-[38%_50%] md:object-[45%_50%]"
+            loading="eager"
+          />
+        </picture>
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
 
         {/* Content */}
         <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 lg:p-20">

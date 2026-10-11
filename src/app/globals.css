@@ -92,6 +92,25 @@ body {
   transform: translateY(0);
 }
 
+/* Hero: alterna en bucle entre la foto con lámparas (esta capa) y la de LEDs (debajo).
+   Cambia cada 10 s: ~8.6 s en cada estado + fundido de ~1.4 s (ciclo de 20 s). */
+@keyframes hero-lights {
+  0%, 43% { opacity: 1; }
+  50%, 93% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.hero-lights-swap {
+  animation: hero-lights 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-lights-swap {
+    animation: none;
+    opacity: 0; /* sin movimiento: se queda la versión con LEDs */
+  }
+}
+
 /* Grain overlay for texture */
 .grain-overlay::after {
   content: '';

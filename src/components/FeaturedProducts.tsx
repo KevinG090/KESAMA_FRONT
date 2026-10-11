@@ -5,17 +5,11 @@ import { featuredProducts } from '@/data/products'
 import { getWhatsappProductUrl } from '@/lib/config'
 import NightstandViewer3D from './NightstandViewer3D'
 
-function ProductCard({
-  product,
-  offset = false,
-}: {
-  product: (typeof featuredProducts)[0]
-  offset?: boolean
-}) {
+function ProductCard({ product }: { product: (typeof featuredProducts)[0] }) {
   const waUrl = getWhatsappProductUrl(product.name, product.category)
 
   return (
-    <div className={`group ${offset ? 'md:mt-24' : ''}`}>
+    <div className="group">
       <div className="aspect-[4/5] bg-[#ffffff] overflow-hidden rounded-sm mb-6 relative">
         <img
           src={product.image}
@@ -159,8 +153,8 @@ export default function FeaturedProducts() {
 
         {/* Other featured products */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {highlighted.map((product, i) => (
-            <ProductCard key={product.id} product={product} offset={i % 2 !== 0} />
+          {highlighted.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
